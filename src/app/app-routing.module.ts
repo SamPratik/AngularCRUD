@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddItemComponent } from './add-item/add-item.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'edit-item', component: EditItemComponent }
 ];
 
 @NgModule({
@@ -17,4 +18,4 @@ const routes: Routes = [
   ]
 })
  export class AppRoutingModule {}
- export const routingComponents = [DashboardComponent];
+ export const routingComponents = [DashboardComponent, EditItemComponent];

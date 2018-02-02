@@ -8,13 +8,15 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { routingComponents } from './app-routing.module';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     AddItemComponent,
-    routingComponents
+    routingComponents,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
