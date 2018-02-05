@@ -17,4 +17,8 @@ export class ReadItemsService {
   getItems(): Observable<IItems[]> {
     return this._http.get<IItems[]>('http://localhost/AngularCRUD/src/assets/data/items.php');
   }
+
+  insertItem(info) {
+    return this._http.post('http://localhost/AngularCRUD/src/assets/data/insertItem.php', info);
+  }
 }

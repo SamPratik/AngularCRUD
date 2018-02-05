@@ -10,7 +10,7 @@ header("Access-Control-Allow-Methods: GET, OPTIONS");
 ?>
 <?php
   $itemsArr = array();
-  $query = "SELECT id, title, description FROM items";
+  $query = "SELECT id, title, description FROM items ORDER BY id DESC";
   $result = mysqli_query($connection, $query);
   while($row = mysqli_fetch_assoc($result)) {
     $itemsArr[] = $row;
