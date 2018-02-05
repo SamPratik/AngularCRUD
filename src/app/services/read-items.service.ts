@@ -21,4 +21,8 @@ export class ReadItemsService {
   insertItem(info) {
     return this._http.post('http://localhost/AngularCRUD/src/assets/data/insertItem.php', info);
   }
+
+  getLastId(): Observable<number> {
+    return this._http.get<number>('http://localhost/AngularCRUD/src/assets/data/getLastItemId.php');
+  }
 }

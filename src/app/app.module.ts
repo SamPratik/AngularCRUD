@@ -11,13 +11,15 @@ import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { routingComponents } from './app-routing.module';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     routingComponents,
-    EditItemComponent
+    EditItemComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
