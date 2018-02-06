@@ -34,4 +34,10 @@ export class EditItemComponent implements OnInit {
     });
   }
 
+  onSubmit(value: any) {
+    this.itemsService.updateItem(value)
+    .subscribe(res => console.log(res));
+    // console.log(value);
+  }
+
 }

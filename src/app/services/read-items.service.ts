@@ -31,4 +31,8 @@ export class ReadItemsService {
     // params.append('id', itemId)
     return this._http.get<IItems>(`http://localhost/AngularCRUD/src/assets/data/getItemUsingId.php?id=${itemId}`);
   }
+
+  updateItem(editedValue) {
+    return this._http.post('http://localhost/angularCRUD/src/assets/data/editItem.php', editedValue);
+  }
 }
