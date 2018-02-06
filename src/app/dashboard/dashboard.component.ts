@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadItemsService } from '../services/read-items.service';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+
 interface IItems {
   id: number,
   title: string,
@@ -13,7 +15,11 @@ interface IItems {
 })
 export class DashboardComponent implements OnInit {
   public items: IItems[] = [];
-  constructor(public itemsService: ReadItemsService, private _http: HttpClient) { }
+  constructor(
+    public itemsService: ReadItemsService,
+    private _http: HttpClient,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     // this.items = [
@@ -29,5 +35,8 @@ export class DashboardComponent implements OnInit {
       .subscribe(data => this.items = data);
   }
 
+  onSelectEditBtn(itemId) {
+    this.router.navigate(['/items', itemId]);
+  }
 
 }
