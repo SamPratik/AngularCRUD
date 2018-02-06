@@ -35,4 +35,8 @@ export class ReadItemsService {
   updateItem(editedValue) {
     return this._http.post('http://localhost/angularCRUD/src/assets/data/editItem.php', editedValue);
   }
+
+  deleteItem(itemId): Observable<number> {
+    return this._http.get<number>(`http://localhost/angularCRUD/src/assets/data/deleteItem.php?id=${itemId}`);
+  }
 }

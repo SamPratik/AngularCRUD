@@ -39,4 +39,18 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/items', itemId]);
   }
 
+  deleteItem(event, itemId) {
+    var c = confirm('Are you sure, you want to delete this?');
+    if(c) {
+      console.log('You pressed ok!');
+      this.itemsService.deleteItem(itemId)
+      .subscribe(res => {
+        console.log(res);
+        event.target.parentElement.parentElement.style.display='none';
+      });
+    } else {
+      console.log('You pressed cancel!');
+    }
+  }
+
 }
