@@ -39,4 +39,8 @@ export class ReadItemsService {
   deleteItem(itemId): Observable<number> {
     return this._http.get<number>(`http://localhost/angularCRUD/src/assets/data/deleteItem.php?id=${itemId}`);
   }
+
+  searchItem(value): Observable<IItems[]> {
+    return this._http.get<IItems[]>(`http://localhost/angularCRUD/src/assets/data/searchItem.php?searchParam=${value}`);
+  }
 }

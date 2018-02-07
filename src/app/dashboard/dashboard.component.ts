@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemsArrayService } from '../services/items-array.service';
 import { ReadItemsService } from '../services/read-items.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +19,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     public itemsService: ReadItemsService,
     private _http: HttpClient,
-    private router: Router
+    private router: Router,
+    private itemsData: ItemsArrayService
   ) { }
 
   ngOnInit() {
@@ -31,14 +33,22 @@ export class DashboardComponent implements OnInit {
     //   {id: 6, title: 'This is a title', description: 'This is a desctiption'},
     //   {id: 7, title: 'This is a title', description: 'This is a desctiption'},
     // ]
-    this.itemsService.getItems()
-      .subscribe(data => this.items = data);
+
+    // calling this getData() function to change the items value of items-array
+    // service so that every component which has registered with itemsSource,
+    // gets this items value...
+    this.itemsData.getData();
+
+    // getting the current changed items value from items-array service...
+    this.itemsData.currentItems.subscribe(res => this.items = res);
   }
 
+  // takes to the edit page with the URL parameter of the id of selected item...
   onSelectEditBtn(itemId) {
     this.router.navigate(['/items', itemId]);
   }
 
+  // deleting a item dynamically whith a confimation alert...
   deleteItem(event, itemId) {
     var c = confirm('Are you sure, you want to delete this?');
     if(c) {

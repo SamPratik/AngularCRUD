@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReadItemsService } from './services/read-items.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+
+import { ReadItemsService } from './services/read-items.service';
+import { ItemsArrayService } from './services/items-array.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -28,7 +30,7 @@ import { AddItemComponent } from './add-item/add-item.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ReadItemsService],
+  providers: [ReadItemsService, ItemsArrayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
