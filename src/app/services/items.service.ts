@@ -3,12 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
-interface IItems {
-  id: number,
-  title: string,
-  description: string
-}
+import { IItems } from '../interfaces/items';
 
 @Injectable()
 export class ItemsService {

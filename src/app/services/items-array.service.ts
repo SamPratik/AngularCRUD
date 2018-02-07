@@ -2,13 +2,7 @@ import { Injectable } from '@angular/core';
 import { ItemsService } from './items.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
-
-interface IItems {
-  id: number,
-  title: string,
-  description: string
-}
-
+import { IItems } from '../interfaces/items';
 @Injectable()
 export class ItemsArrayService {
 

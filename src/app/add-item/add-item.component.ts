@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemsArrayService } from '../services/items-array.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { IItems } from '../interfaces/items';
 import { ItemsService } from '../services/items.service';
+import { ItemsArrayService } from '../services/items-array.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -10,7 +11,7 @@ import * as $ from 'jquery';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
- items: any[] = [];
+ items: IItems[] = [];
   //Taking 'items' as input from parent component(DashboardComponent)...
   // @Input() items: any[];
   constructor(private itemsService: ItemsService, private itemsData: ItemsArrayService) { }

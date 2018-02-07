@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsArrayService } from '../services/items-array.service';
-import { ItemsService } from '../services/items.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IItems } from '../interfaces/items';
+import { ItemsArrayService } from '../services/items-array.service';
+import { ItemsService } from '../services/items.service';
 
-interface IItems {
-  id: number,
-  title: string,
-  description: string
-}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
