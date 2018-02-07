@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { ReadItemsService } from '../services/read-items.service';
+import { ItemsService } from '../services/items.service';
 
 @Component({
   selector: 'app-edit-item',
@@ -15,7 +15,7 @@ export class EditItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private itemsService: ReadItemsService
+    private itemsService: ItemsService
   ) { }
 
   ngOnInit() {
@@ -36,7 +36,11 @@ export class EditItemComponent implements OnInit {
 
   onSubmit(value: any) {
     this.itemsService.updateItem(value)
-    .subscribe(res => console.log(res));
+    .subscribe(res => {
+      console.log(res);
+      alert('Updated Successfully');
+      this.router.navigate(['..'], {relativeTo: this.route});
+    });
     // console.log(value);
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReadItemsService } from '../services/read-items.service';
+import { ItemsService } from '../services/items.service';
 import { ItemsArrayService } from '../services/items-array.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ItemsArrayService } from '../services/items-array.service';
 export class NavComponent implements OnInit {
   searchParam: string = '';
   items: any[];
-  constructor(private itemsService: ReadItemsService, private itemsArrayService: ItemsArrayService) { }
+  constructor(private itemsService: ItemsService, private itemsArrayService: ItemsArrayService) { }
 
   ngOnInit() {
 

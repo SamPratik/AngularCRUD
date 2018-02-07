@@ -11,7 +11,7 @@ interface IItems {
 }
 
 @Injectable()
-export class ReadItemsService {
+export class ItemsService {
   constructor(private _http: HttpClient) { }
 
   getItems(): Observable<IItems[]> {

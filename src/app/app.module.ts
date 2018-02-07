@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
-import { ReadItemsService } from './services/read-items.service';
+import { ItemsService } from './services/items.service';
 import { ItemsArrayService } from './services/items-array.service';
 
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import { AddItemComponent } from './add-item/add-item.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ReadItemsService, ItemsArrayService],
+  providers: [ItemsService, ItemsArrayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

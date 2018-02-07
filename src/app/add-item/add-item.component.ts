@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemsArrayService } from '../services/items-array.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ReadItemsService } from '../services/read-items.service';
+import { ItemsService } from '../services/items.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-add-item',
@@ -12,7 +13,7 @@ export class AddItemComponent implements OnInit {
  items: any[] = [];
   //Taking 'items' as input from parent component(DashboardComponent)...
   // @Input() items: any[];
-  constructor(private itemsService: ReadItemsService, private itemsData: ItemsArrayService) { }
+  constructor(private itemsService: ItemsService, private itemsData: ItemsArrayService) { }
   userForm = new FormGroup({
     title: new FormControl(),
     description: new FormControl()
@@ -27,7 +28,10 @@ export class AddItemComponent implements OnInit {
       // After inserting form values get the last inserted id to show dynamically in the
       // view...
       this.itemsService.getLastId()
-      .subscribe(res => this.userForm.value.id = res);
+      .subscribe(res => {
+        this.userForm.value.id = res;
+        $('#addItemForm')[0].reset();
+      });
       // Add the form data(title, description) as well as the last inserted id
       // in the items array usin unshift( method)...
       this.items.unshift(this.userForm.value);

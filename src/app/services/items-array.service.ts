@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ReadItemsService } from './read-items.service';
+import { ItemsService } from './items.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,7 +23,7 @@ export class ItemsArrayService {
   private itemsSource = new BehaviorSubject<IItems[]>(this.items);
   currentItems = this.itemsSource.asObservable();
 
-  constructor(public itemsService: ReadItemsService) {
+  constructor(public itemsService: ItemsService) {
 
   }
 

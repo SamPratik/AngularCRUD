@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsArrayService } from '../services/items-array.service';
-import { ReadItemsService } from '../services/read-items.service';
+import { ItemsService } from '../services/items.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -17,8 +17,9 @@ interface IItems {
 export class DashboardComponent implements OnInit {
   public items: IItems[] = [];
   constructor(
-    public itemsService: ReadItemsService,
+    public itemsService: ItemsService,
     private _http: HttpClient,
+    private route: ActivatedRoute,
     private router: Router,
     private itemsData: ItemsArrayService
   ) { }
@@ -45,7 +46,7 @@ export class DashboardComponent implements OnInit {
 
   // takes to the edit page with the URL parameter of the id of selected item...
   onSelectEditBtn(itemId) {
-    this.router.navigate(['/items', itemId]);
+    this.router.navigate(['.', itemId], {relativeTo: this.route});
   }
 
   // deleting a item dynamically whith a confimation alert...
