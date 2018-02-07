@@ -11,7 +11,7 @@ header("Access-Control-Allow-Methods: GET, OPTIONS");
 <?php
   $searchParam = $_GET['searchParam'];
   $arr = array();
-  $search = "SELECT id, title, description FROM items WHERE title LIKE '%{$searchParam}%'";
+  $search = "SELECT id, title, description FROM items WHERE title LIKE '%{$searchParam}%' ORDER BY id DESC";
   $result = mysqli_query($connection, $search);
 
   while($row = mysqli_fetch_assoc($result)) {
